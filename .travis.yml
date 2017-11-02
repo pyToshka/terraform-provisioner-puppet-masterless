@@ -3,4 +3,5 @@ go: 1.9.1
 install:
   - go get github.com/mitchellh/gox
   - go get github.com/hashicorp/terraform
-  - gox
+  - go get
+  - gox -os "freebsd darwin linux windows"
