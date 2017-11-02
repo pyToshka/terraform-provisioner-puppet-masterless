@@ -4,4 +4,4 @@ install:
   - go get github.com/mitchellh/gox
   - go get github.com/hashicorp/terraform
   - go get
-  - gox -os "freebsd darwin linux windows"
+  - gox -os "freebsd darwin linux windows" -arch "386 amd64"
