@@ -10,3 +10,4 @@ variables.tf
 .terraform
 /terraform-provisioner-puppet-masterless/puppet-agent/main.tf
 /puppet-agent/variables.tf
+/.travis.yml_
