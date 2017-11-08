@@ -97,7 +97,6 @@ func (p *Provisioner) Run(o terraform.UIOutput, comm communicator.Communicator) 
 	}
 
 	command := fmt.Sprintf("'curl %s -o %s -s'", agent_url, script)
-	fmt.Sprintf(command)
 	if err := p.runCommand(o, comm, command); err != nil {
 		return err
 	}
@@ -340,7 +339,7 @@ func (p *Provisioner) uploadManifests(o terraform.UIOutput, comm communicator.Co
 	}
 	return remoteManifestFile, nil
 }
-func (p *Provisioner)uploadDirectory(
+func (p *Provisioner) uploadDirectory(
 	o terraform.UIOutput, comm communicator.Communicator, dst string, src string) error {
 	if err := p.createDir(o, comm, dst); err != nil {
 		return err
