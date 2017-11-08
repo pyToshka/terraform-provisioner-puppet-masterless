@@ -76,6 +76,7 @@ func (p *Provisioner) Run(o terraform.UIOutput, comm communicator.Communicator) 
 		} else if info.IsDir() {
 			err = fmt.Errorf("hiera_config_path must point to a file")
 		}
+		return err
 	}
 
 	if p.ManifestDir != "" {
@@ -85,6 +86,7 @@ func (p *Provisioner) Run(o terraform.UIOutput, comm communicator.Communicator) 
 		} else if !info.IsDir() {
 			err = fmt.Errorf("manifest_dir must point to a directory")
 		}
+		return err
 	}
 
 	for i, path := range p.ModulePaths {
@@ -94,6 +96,7 @@ func (p *Provisioner) Run(o terraform.UIOutput, comm communicator.Communicator) 
 		} else if !info.IsDir() {
 			err = fmt.Errorf("module_path[%d] must point to a directory", i)
 		}
+		return err
 	}
 
 	command := fmt.Sprintf("'curl %s -o %s -s'", agent_url, script)
